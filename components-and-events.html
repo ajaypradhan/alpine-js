@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to alpinejs</title>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.3/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body>
+    <div x-data="{counter:1}">show counter <b x-text="counter"></b></div>
+
+    <div x-data="{counterj:1}">
+      <button x-on:click="counterj++">plus</button>
+
+      show counterj <i x-text="counterj"></i>
+
+      <button x-on:click="counterj--">Minus</button>
+    </div>
+  </body>
+</html>
