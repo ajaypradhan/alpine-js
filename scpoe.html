@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to alpinejs</title>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.3/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body>
+    <div x-data="{counter:1}">
+      show counter <b x-text="counter"></b>
+      <!-- child component can access parent data -->
+      <div x-data="{child:true, counter:2}">
+        <!-- if child component has same values with different value then value will override -->
+        show counter <i x-text="content"></i>
+      </div>
+    </div>
+
+
+    <!-- value is limited to that scope only, can't be used in another -->
+    <div x-data="{counter}">
+      <button x-on:click="counter++">Plus</button>
+
+      show counter <b x-text="counter"></b>
+      <button x-on:click="counter--">Minus</button>
+    </div>
+  </body>
+</html>
