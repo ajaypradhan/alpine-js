@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>x-model, x-text, x-html, x-bind</title>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.3/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body>
+    <div x-data="{title=:''}">
+      <input type="text" x-model="title" />
+      <p x-text="title"></p>
+    </div>
+
+    <div x-data="{title:''}">
+      <!-- in this condition it will wait for some sec and then execute/show value -->
+      <input type="text" x-model.debounce="title" />
+      <p x-text="title"></p>
+    </div>
+
+    <div x-data="{title:''}">
+      <input type="text" x-model="title" />
+      <p x-html="title"></p>
+    </div>
+
+    <h3>display image</h3>
+
+    <div x-data="{image:''}">
+      <h4>paste image url</h4>
+      <input type="text" x-model="image" />
+      <p>
+        <!-- bind is used to apply dynamic  -->
+        <img x-bind:src="image" alt="display image" />
+      </p>
+    </div>
+  </body>
+</html>
