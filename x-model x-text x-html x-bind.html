@@ -32,8 +32,8 @@
       <h4>paste image url</h4>
       <input type="text" x-model="image" />
       <p>
-        <!-- bind is used to apply dynamic  -->
-        <img x-bind:src="image" alt="display image" />
+        <!-- bind is used to apply dynamic value, shorthand for x-bind is : -->
+        <img x-show="image != ''" x-bind:src="image" alt="display image" />
       </p>
     </div>
   </body>
