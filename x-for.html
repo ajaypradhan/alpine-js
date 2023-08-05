@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>x-for</title>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.3/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body>
+    <div x-data="{todo:'',todoList:['Learn','Office','Gym','Shopping']}">
+      <div>
+        <input type="text" x-model="todo" />
+        <button @click="todoList.push(todo); todo=''">Add Todo</button>
+      </div>
+
+      <ul>
+        <template x-for="todo in todoList">
+          <li x-text="todo"></li>
+        </template>
+      </ul>
+    </div>
+  </body>
+</html>
