@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magic</title>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.3/dist/cdn.min.js"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!-- el -->
+    <div x-data>
+      <button @click="$el.innerHTML = 'Hello World!'">
+        Replace me with "Hello World!"
+      </button>
+    </div>
+
+    <!-- dispatch -->
+
+    <!-- <div x-data="{title:'component 1'}">
+      <button @click="$dispatch('fire')">update component 2</button>
+    </div>
+    <hr />
+
+    <div x-data="{title:'component 2'}">
+        <p x-text="title" @fire.window="title='component 1 fire event '"></p>
+    </div> -->
+
+    <div x-data="{title1:'component 1'}">
+      <button @click="$dispatch('fire',{title1:'new title1'})">
+        update component 2
+      </button>
+    </div>
+    <hr />
+
+    <div x-data="{title1:'component 2'}">
+      <p x-text="title1" @fire.window="title1=$event.detail.title1"></p>
+    </div>
+  </body>
+</html>
